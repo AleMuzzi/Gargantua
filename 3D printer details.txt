@@ -1,0 +1,16 @@
+3D printer details
+
+4040 profiles:
+- 620mm x4
+- 545mm x2
+- 1055mm x2
+
+2040 profiles:
+- 625mm
+
+2020 profiles:
+- 640mm
+
+Tensioner belt:
+- 1500mm x2
+- 1600mm
