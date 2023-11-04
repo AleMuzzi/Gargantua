@@ -38,5 +38,5 @@ CR-6 Max heated bed ([link](https://www.3dprima.com/spare-parts-accessories/manu
 - 1500mm x2
 - 1600mm
 
-**Z-axis screws**
-*2x* THSL 1000mm 8D lead screw
+**Z-axis screws:**
+- *2x* THSL 1000mm 8D lead screw
