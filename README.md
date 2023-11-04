@@ -2,6 +2,7 @@
 # Gargantua
 
 With the prominence of the famous supermassive black hole, this is Gargantua!
+
 Gargantua has a giant **430x420x770mm build volume** with double extruder and double independent Z axis to improve stability. Running **Klipper**, it enables for remote control from any device.
 
 ![Gargantua 3D Printer](res/gargantua_printer.gif)
