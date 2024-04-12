@@ -16,14 +16,14 @@ Gargantua has a giant **430x420x770mm build volume** with double extruder and do
 CR-6 Max heated bed ([link](https://www.3dprima.com/spare-parts-accessories/manufacturer/creality-3d/creality-cr-6-max-hot-bed-kit_26081_7415?currency=EUR))
 
 ### Stepper motors
-*6x* TMC 2209 Driver
-*1x* 42-60 Dual-axis stepper motor (Y axis)
-*3x* 42-34 Stepper motor (X and Z axis)
-*2x* 40-42 Stepper motor (Extruders)
+- *6x* TMC 2209 Driver
+- *1x* 42-60 Dual-axis stepper motor (Y axis)
+- *3x* 42-34 Stepper motor (X and Z axis)
+- *2x* 40-42 Stepper motor (Extruders)
 
 ### Power supply
-24V 500W DC Power supply for the heated bed (driven by an SSR via motherboard's PID controller)
-24V 350W DC Power supply for everything else
+- 24V 500W DC Power supply for the heated bed (driven by an SSR via motherboard's PID controller)
+- 24V 350W DC Power supply for everything else
 
 ## Frame
 **4040 profiles:**
