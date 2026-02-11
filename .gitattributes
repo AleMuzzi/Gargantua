@@ -1,0 +1,5 @@
+Design/Gargantua.3mf filter=lfs diff=lfs merge=lfs -text
+Design/Gargantua.f3z filter=lfs diff=lfs merge=lfs -text
+*.3mf filter=lfs diff=lfs merge=lfs -text
+*.f3z filter=lfs diff=lfs merge=lfs -text
+*.f3d filter=lfs diff=lfs merge=lfs -text
