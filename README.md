@@ -68,11 +68,10 @@ So, I opted for **two 24V 500W power supplies**—one dedicated solely to the be
 Finally, I upgraded the bed leveling sensor from a standard probe to a **Beacon H**[<math display="inline"><sup>↗</sup></math>](https://beacon3d.com/), which uses eddy current displacement to measure distance to accurately measure the distance between the sensor and the print bed, offering much more accurate, reliable and faster calibration, especially on larger surfaces. This allowed the bed mesh to leap from a 5x5 grid to a highly accurate 30x30 matrix without needing interpolation.
 
 <p align="center">
-    <video width="400px" controls loop muted autoplay playsinline>
-      <source src="https://github.com/AleMuzzi/Gargantua/res/gargantua_bed_scan.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  <img src="res/gargantua_bed_mesh.png" alt="Gargantua bed mesh" width="400" />
+  <video src="https://github.com/user-attachments/assets/059d04e4-c965-48ba-bb5d-aec4066f602b" width="40%" controls loop muted autoplay playsinline/>
+</p>
+<p align="center">
+  <img src="res/gargantua_bed_mesh.png" alt="Gargantua bed mesh" width="40%" />
 </p>
 
 <p align="center">
