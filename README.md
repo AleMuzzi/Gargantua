@@ -1,31 +1,13 @@
 ![Gargantua Black Hole](res/gargantua.jpg)
-# Gargantua
+# Gargantua - Large Format 3D Printer
 
 With the prominence of the famous supermassive black hole, this is Gargantua!
 
 Gargantua has a giant **430x420x770mm build volume** with double extruder and double independent Z axis to improve stability. Running **Klipper**, it enables for remote control from any device.
 
-![Gargantua 3D Printer](res/gargantua_printer.gif)
+<img src="res/gargantua_printer.gif" alt="BTT Manta M8P" style="display: block; margin-left: auto; margin-right: auto;"/>
 
-# 🖨️ Gargantua - Large Format 3D Printer
-
-## Summary
-
-An open-source large format DIY 3D printer based on BTT Manta M8P and Klipper
-
-## What this project is
-
-It all started with a simple mistake: I ordered the wrong glass bed for my Creality Ender 3 Pro, receiving a 420x420 mm plate instead of the 220x220 mm version. Rather than returning or cutting it, I decided to build a brand-new 3D printer capable of fully utilizing this massive printing surface.
-
-My Ender 3 Pro had already undergone several modifications—dual Z-axis, E3D V6 all-metal hotend, BLTouch auto-leveling, and more. However, I wanted to explore this world more deeply by building a machine from scratch with custom firmware that would allow me to experiment with new 3D printing approaches. I used the CAD design provided by Creality for the Ender 3[<math display="inline"><sup>↗</sup></math>](https://github.com/Creality3DPrinting/Ender-3) as a starting point and completely overhauled it for a much larger format.
-
-Since this was my first time designing a 3D printer and I was still learning the ropes, I stayed conservative by keeping the basic architecture: a V-slot aluminum structure and a dual Z-axis.
-
-> 💡 **Hindsight is 20/20:** If I were to start over today, I would almost certainly opt for a CoreXY configuration. It offers significant advantages in speed and precision, especially for larger formats, and I would move toward a linear rail system instead of V-slots.
-
----
-
-### Dettagli tecnici
+### Technical Specifications
 ```
 Build Volume:           400x400x768 mm                   
 Dimesions:                                        Extruders number:              2                   
@@ -43,7 +25,10 @@ Choosing the firmware was the first major decision, as it influenced all subsequ
 **Klipper** emerged as the winner due to its flexibility and ability to leverage 32-bit hardware for precise movement and temperature control.
 I already had experience with Marlin, but I wanted to explore new possibilities and Klipper seemed like the right choice for this project.
 
-![gargantua_btt_manta_m8p_photo.png{width="400px"}{align="right"}{caption="BTT Manta M8P"}](res/gargantua_btt_manta_m8p_photo.png)
+<div style="display: flex; flex-direction: column; float: right; margin-left: 20px">
+    <img src="res/gargantua_btt_manta_m8p_photo.png" alt="BTT Manta M8P" width="300px"/>
+    <label style="display: block; text-align: center; font-size: 0.9em; color: #888; margin-top: 4px; font-style: italic" >BTT Manta M8P</label>
+</div>
 
 For the controller I chose the **BTT Manta M8P** board, a 32-bit control board based on the STM32G0B1VET6, a 32-bit 64MHz ARM Cortex-M0+, which offers a wide range of features and good compatibility with various open source firmware.
 It is paired with the **BTT CB1** computing module (essentially a twin to the Raspberry Pi CM4), which runs Klipper and manages the **Mainsail**[<math display="inline"><sup>↗</sup></math>](https://github.com/mainsail-crew/mainsail) user interface.
@@ -56,7 +41,10 @@ The motors are driven by **TMC2209** drivers, known for their silent operation a
 
 Because of the high power draw of the massive bed and dual hotends, I calculated the following power requirements:
 
-![gargantua_biqu_extruder.png{width="300px"}{align="right"}{caption="Biqu H2 V2S REVO"}](res/gargantua_biqu_extruder.png)
+<div style="display: flex; flex-direction: column; float: right; margin-left: 20px">
+    <img src="res/gargantua_biqu_extruder.png" alt="Gargantua printer structure" width="300px"/>
+    <label class="image-caption" style="display: block; text-align: center; font-size: 0.9em; color: #888; margin-top: 4px; font-style: italic" >Biqu H2 V2S REVO</label>
+</div>
 
 The total power required by the main components of the printer is as follows:
 -**Heated Bed:** 420W @ 24V
@@ -70,12 +58,13 @@ So, I opted for **two 24V 500W power supplies**—one dedicated solely to the be
 Finally, I upgraded the bed leveling sensor from a standard probe to a **Beacon H**[<math display="inline"><sup>↗</sup></math>](https://beacon3d.com/), which uses eddy current displacement to measure distance to accurately measure the distance between the sensor and the print bed, offering much more accurate, reliable and faster calibration, especially on larger surfaces. This allowed the bed mesh to leap from a 5x5 grid to a highly accurate 30x30 matrix without needing interpolation.
 
 <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 24px;">
-    <video src="res/gargantua_bed_scan.mp4" loop muted autoplay playsinline width="400px"></video>
-    <figure width="400px" style="display: table">
-      <img src="res/gargantua_bed_mesh.png" width="400px" />
-      <figcaption class="image-caption" style="display: table-caption; caption-side: bottom;" >The plate seems very tilted, but if you look carefully at the Z-axis, on 40cm of length there is only 2mm of maximum difference</figcaption>
-    </figure>
+    <video width="400px" controls loop muted autoplay playsinline>
+      <source src="res/gargantua_bed_scan.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <img src="res/gargantua_bed_mesh.png" alt="Gargantua bed mes" width="400px" style="display: block; margin-left: auto; margin-right: auto;"/>
 </div>
+<label class="image-caption" style="display: block; text-align: center; font-size: 0.9em; color: #888; margin-top: 4px; margin-left: auto; margin-right: auto; font-style: italic" >The plate seems very tilted, but if you look carefully at the Z-axis, on 40cm of length there is only 2mm of maximum difference</label>
 
 
 ### Design and Development
@@ -84,12 +73,8 @@ The printer design was done using **Fusion 360**, which allowed me to precisely 
 The development process was iterative, with frequent testing and design changes. Designing everything in CAD allowed me to identify and resolve potential compatibility and space issues before proceeding to the assembly phase, saving time and resources.
 The project was initially manageable in size, but over time it was necessary to break it down into parts and combine them into a single design for when an overall view is needed. This modularity allowed for more agile development of the various components.
 
-<figure width="400px" style="display: table;  margin-left: auto; margin-right: auto;">
-    <img src="res/gargantua_printer.gif" alt="Alt text" width="400"/>
-    <figcaption style="display: table-caption; caption-side: bottom; text-align: center; font-size: 0.9em; color: #888; margin-top: 4px; font-style: italic" >Gargantua's structure</figcaption>
-</figure>
-
-![gargantua_printer.gif{width="400px"}{align="center"}{caption="Gargantua's structure"}](res/gargantua_printer.gif)
+<img src="res/gargantua_printer.gif" alt="Gargantua printer structure" width="400px" style="display: block; margin-left: auto; margin-right: auto;"/>
+<label class="image-caption" style="display: block; text-align: center; font-size: 0.9em; color: #888; margin-top: 4px; margin-left: auto; margin-right: auto; font-style: italic" >Gargantua's structure</label>
 
 #### From Bowden to Direct Drive
 
@@ -102,8 +87,9 @@ In designing this printer, flexibility took priority over performance; if I were
 The idea of being able to print with two extruders has always fascinated me: in addition to allowing printing in 2 colors, it allows you to experiment with different materials, such as prints in which a flexible and a non-flexible material are interleaved, or to use soluble media such as PVA.
 I then decided to implement it from the beginning, designing a support head for two Biqu H2 V2S REVO hotends.
 
-![gargantua_print_head_bowden.png{width="900px"}{align="center"}](res/gargantua_print_head_bowden.png)
-![gargantua_print_head_direct_drive.png{width="900px"}{align="center"}{caption="(above) Bowden extruder, (below) Direct drive extruder"}](res/gargantua_print_head_direct_drive.png)
+<img src="res/gargantua_print_head_bowden.png" alt="Gargantua bowden print head" width="900px" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 5px"/>
+<img src="res/gargantua_print_head_direct_drive.png" alt="Gargantua direct drive print head" width="900px" style="display: block; margin-left: auto; margin-right: auto;"/>
+<label class="image-caption" style="display: block; text-align: center; font-size: 0.9em; color: #888; margin-top: 4px; margin-left: auto; margin-right: auto; font-style: italic" >(above) Bowden extruder, (below) Direct drive extruder</label>
 
 In the images above you can see the difference between the print head with bowden extruders and the one with direct drive extruders.
 In the first, you can glimpse the extruders and the aeration channels to cool them (hidden fans to show the details), and in the distance on the left, the extruder motors.
@@ -118,7 +104,8 @@ As a first enclosure it might have been fine, but the IKEA Lack coffee table did
 
 For Gargantua, I drew a hollow aluminum square-section profile structure, with two ports, so that I had both front and side access to the printer.
 
-![gargantua_enclosure.png{width="900px"}{align="center"}{caption="Gargantua inside its enclosure"}](res/gargantua_enclosure.png)
+<img src="res/gargantua_enclosure.png" alt="Gargantua enclosure" width="900px" style="display: block; margin-left: auto; margin-right: auto;"/>
+<label class="image-caption" style="display: block; text-align: center; font-size: 0.9em; color: #888; margin-top: 4px; margin-left: auto; margin-right: auto; font-style: italic" >Gargantua inside its enclosure</label>
 
 The walls and doors were then padded with insulation panels and covered with hard plastic panels.
 To allow me to inspect the printing in progress without having to open the doors, I designed the doors with a double hinge, so that the outer part can be opened independently of the inner part, consisting of an aluminum frame with a transparent plexiglass panel.
@@ -128,7 +115,7 @@ Inside, the printer is attached to the enclosure through 4 rubber dampers, to re
 
 A strip led system was installed on the ceiling of the enclosure, to illuminate the interior during printing and facilitate visual inspection of the printing process.
 
-![gargantua_printer_photo_lights.jpg](res/gargantua_printer_photo_lights.jpg)
+<img src="res/gargantua_printer_photo_lights.jpg" alt="Gargantua lights" width="900px" style="display: block; margin-left: auto; margin-right: auto;"/>
 
 ### Filament Dehumidifier
 
@@ -136,7 +123,8 @@ A very important and often underestimated part of 3D printing is the management 
 To address this issue, I decided to integrate a filament drying system directly above the enclosure, designing a dedicated compartment that houses 10 filaments, with a heating and ventilation system to keep the filaments dry and ready for printing.
 This system is powered together with the printer, and is connected directly to the extruders, so that the dried filaments do not come into contact with external moisture on the way to the hotends.
 
-![gargantua_dehumidifier_photo.png{width="750px"}{align="center"}{caption="Filament dehumidifier"}](res/gargantua_dehumidifier_photo.png)
+<img src="res/gargantua_dehumidifier_photo.png" alt="Gargantua dehumidifier" width="900px" style="display: block; margin-left: auto; margin-right: auto;"/>
+<label class="image-caption" style="display: block; text-align: center; font-size: 0.9em; color: #888; margin-top: 4px; margin-left: auto; margin-right: auto; font-style: italic" >Filament dehumidifier</label>
 
 In the photo above, you can see the dehumidifier, with several filaments, and above it, you can see the heating circuit, still in the prototyping phase. In the center, a pulley system guides the filaments toward the extruders; at the bottom center, you can see the tube that carries the filaments out of the dehumidifier, toward the extruders.
 
@@ -150,7 +138,8 @@ The filter in question is the **AlveoOne R of Alveo3D**[<math display="inline"><
 Gargantua's firmware is configured to automatically activate the fume extraction system when fume-generating materials are printed, and to continue filtering the air for a certain period after printing has finished.
 
 ### The Name: Gargantua
-![gargantua_black_hole_banner.jpg{width="1000px"}{height="300px"}{align="center"}{caption="Gargantua - Interstellar's supermassive black hole"}](res/gargantua_black_hole_banner.jpg)
+<img src="res/gargantua_black_hole_banner.jpg" alt="Gargantua black hole banner" width="1000px" height="300px" style="display: block; margin-left: auto; margin-right: auto;"/>
+<label class="image-caption" style="display: block; text-align: center; font-size: 0.9em; color: #888; margin-top: 4px; margin-left: auto; margin-right: auto; font-style: italic" >Gargantua - Interstellar's supermassive black hole</label>
 </br>
 
 The name Gargantua was chosen in honor of the super-massive black hole depicted in Christopher Nolan's film Interstellar.
@@ -169,15 +158,14 @@ After completing assembly and starting printing, I was pleased to see that the i
 However, this heat caused overheating problems for the electronics and power supplies, leading to malfunctions and printing interruptions.
 To solve this problem, I had to drill a small hole in the back of the enclosure to move all the electronics outside, allowing for better heat dissipation.
 
-<div style="display: flex; flex-direction: column; align-items: center;">
-
-![gargantua_electronics_outside_photo.jpg{width="600px"}](res/gargantua_electronics_outside_photo.jpg)
-![gargantua_electronics_inside_photo.jpg{width="336px"}](res/gargantua_electronics_inside_photo.jpg)
+<div style="display: flex; flex-direction: row; align-items: center;">
+<img src="res/gargantua_electronics_outside_photo.jpg" alt="Gargantua electronics outside" width="600px" style="margin-right: 5px"/>
+<img src="res/gargantua_electronics_inside_photo.jpg" alt="Gargantua electronics inside" width="336px"/>
+</div>
 <div>
-<label class="image-caption">(left) Power supplies and electronics, moved outside the case. (right) Cables inside it</label>
+<label style="display: block; text-align: center; font-size: 0.9em; color: #888; margin-top: 4px; margin-left: auto; margin-right: auto; font-style: italic">(left) Power supplies and electronics, moved outside the case. (right) Cables inside it</label>
 </div>
 
-</div>
 
 The second problem was the erosion of the hotend nozzles. When I made the double extruder printhead, I tried to get as much precision as possible, to make sure that the height of the two hotends was perfectly aligned.
 However, the dual extruder operated for a short time: erosions from printing and nozzles that left the factory slightly higher than others made it impossible to maintain precise alignment between the two hotends. Unfortunately, the accuracy required here is quite high, ~0.1mm, and even a small difference in height between the two hotends can cause printing problems.
@@ -193,9 +181,11 @@ This was certainly the most ambitious and complex project I have ever carried ou
 Gargantua is a large format, powerful and versatile 3D printer, which has allowed me to explore new possibilities in 3D printing and improve my skills in design and electronics.
 I can't say it's over, because this is an ever-evolving project, with new features and improvements in development, but I'm proud of what I've accomplished so far and can't wait to see where this project takes me in the future.
 
-![gargantua_printer_photo_1.jpg{width="400px"}](res/gargantua_printer_photo_1.jpg)
-![gargantua_printer_photo_2.jpg{width="400px"}](res/gargantua_printer_photo_2.jpg)
-![gargantua_printer_photo_3.jpg{width="400px"}](res/gargantua_printer_photo_3.jpg)
+<div style="display: flex; flex-direction: row; align-items: center;">
+<img src="res/gargantua_printer_photo_1.jpg" alt="Gargantua electronics outside" width="400px" style="margin-right: 5px"/>
+<img src="res/gargantua_printer_photo_2.jpg" alt="Gargantua electronics inside" width="400px" style="margin-right: 5px"/>
+<img src="res/gargantua_printer_photo_3.jpg" alt="Gargantua electronics inside" width="400px"/>
+</div>
 
 ## Technologies and tools
 * **Firmware:** Klipper
